@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('login', [AdminController::class, 'login'])->name('login');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'auth.is-admin'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
