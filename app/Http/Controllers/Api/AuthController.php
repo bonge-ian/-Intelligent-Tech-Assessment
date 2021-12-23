@@ -40,6 +40,8 @@ class AuthController extends Controller
     {
         Auth::user()->tokens()->delete();
 
+        Auth::logout();
+
         return [
             'message' => 'Tokens Revoked'
         ];
