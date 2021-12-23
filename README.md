@@ -8,6 +8,17 @@
 4. mv .env.example .env
 5. set the database credentials
 6. php artisan key:generate
-7. php artisan serve.
+7. php artisan migrate
+8. php artisan serve.
 
+### Notes
+- api routes
+    - {domain}/api/auth/login
+    - {domain}/api/auth/register
+    - {domain}/api/auth/logout
+    - {domain}/api/profile
 
+- admin routes
+    - {domain}/login
+    - {domain}/admin/
+    - {domain}/admin/user/{user}
