@@ -9,7 +9,8 @@
 5. set the database credentials
 6. php artisan key:generate
 7. php artisan migrate
-8. php artisan serve.
+8. php artisan db:seed
+9. php artisan serve.
 
 ### Notes
 - api routes
