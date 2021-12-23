@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -54,6 +55,10 @@ class AuthController extends Controller
             'phone' => $validated['phone'],
             'password' => Hash::make($validated['password']),
         ]);
+
+        $role = Role::where('name', 'user')->first();
+
+        $user->roles()->attach($role);
 
         return response()->json([
             'status' => 'Success',
