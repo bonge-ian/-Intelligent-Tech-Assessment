@@ -22,7 +22,7 @@ class AdminController extends Controller
 
         return view('admin.user', compact($user));
     }
-    
+
     public function login(Request $request)
     {
         $validated = $request->validate([
@@ -37,6 +37,10 @@ class AdminController extends Controller
         if (Auth()->user()->isAdmin()) {
             return redirect()->route('admin.index');
         }
+        // log the non admin out
+        $this->logout();
+
+        session()->flash('status', 'Only admins can login in via the login form');
 
         return redirect('/');
     }
