@@ -22,7 +22,7 @@ class AdminController extends Controller
 
         return view('admin.user', compact($user));
     }
-
+    
     public function login(Request $request)
     {
         $validated = $request->validate([
